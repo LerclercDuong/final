@@ -1,0 +1,188 @@
+<section >
+    <div id = "left-menu">
+      <div id = "leaderBoard">
+      <div style="margin: 0 auto">
+         <ion-icon name="flame-outline"></ion-icon> 
+        <p style = "font-size:1.2rem; display: inline; font-weight: bold;">Leaderboard</p>
+      </div> 
+        <div id = "topUsers">
+          <% topUsers.forEach(function(top) { %>
+          <p><%= top.username %>  <%= top.credit %> </p> 
+            
+            <% }); %> 
+        </div>
+       
+      </div>
+
+    </div>
+</section>
+
+<section >
+<div id = "right-menu">
+  <div id="destinationRank">
+    <div> </div>
+
+  </div>
+  <!-- <div id="calendar">
+    <div class="wrapper">
+      <div class="months">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      <div id="month-day"></div>
+       <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+    <ul class="weeks">
+      <li>Sun</li>
+      <li>Mon</li>
+      <li>Tue</li>
+      <li>Wed</li>
+      <li>Thu</li>
+      <li>Fri</li>
+      <li>Sat</li>
+    </ul>
+    <ul id="days">
+      
+    
+    </ul> 
+    </div>
+    
+    </div> -->
+
+    <!-- <div id="friendList">
+      <br>
+      Today November, 26,  
+      Ho Chi Minh city
+      <br>
+      UV : < 5
+      <br>
+      Weather: Rain
+      <br>
+      Pollution index: low
+    </div> -->
+</div>
+</section>
+<div class="container">
+<div class="statusArea">
+    <form action="/" method="post">
+
+<div class="writeStatus">
+    <img src="https://i1.sndcdn.com/avatars-000387803255-gfwgsb-t500x500.jpg" class="avatar"> 
+  <input class="statusInput" type="text" placeholder="Chia sẻ môi trường bạn sống hôm nay ..." name="content"> 
+ <div style="display: block; padding-left: 10px;">
+  <form action="/profile" method="post" enctype="multipart/form-data">
+    <label for="file-input">
+      <ion-icon name="image-outline" style="color:rgb(98, 219, 68); font-size: 20px;"></ion-icon> 
+    </label>
+    
+    <input style="display:none;" id="file-input" type="file" name="avatar" />
+  </form>
+ 
+  <a href=""><ion-icon name="videocam-outline" style="color:red; font-size: 20px;"></ion-icon> </a>
+  </div>
+  
+
+  
+  </div>
+        
+    </form>
+
+
+  <% status.forEach(function(stt) { %>
+  <div class="status">
+    <div>
+      <div style="display: inline-flex; align-items: center; "> 
+        <img src="https://i1.sndcdn.com/avatars-000387803255-gfwgsb-t500x500.jpg" class="avatar">
+         <div class="author"> 
+        <p><%= stt.createdAt %></p>
+        <p><%= stt.username %></p>
+          </div>
+      
+       </div>      
+
+        
+       
+       <div class="content"> 
+          <p><%= stt.content %></p>
+       </div>
+        
+            
+        
+    </div>
+
+      <div class="statusAction" style="border: .5px solid rgb(206, 206, 206); border-left: none; border-right: none;">
+        <div class="dropdown"> 
+        <a href=""><p>Đánh giá môi trường này</p></a>
+        <div class="dropdown-content">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </div>
+      </div>
+      </div>
+      <div id="commentsArea" style="min-height: 130px;">  
+        <div id="writeComment" >
+          <div style="display: inline-flex; margin-top:15px;
+          align-items: center;
+          width: 100%;">
+            <img src="https://i1.sndcdn.com/avatars-000387803255-gfwgsb-t500x500.jpg" style = "width: 30px; height:30px; border-radius:50%;"> 
+          <input style="border-radius: 17px;border: none;background-color:#f0f0f0; margin-left: 10px;
+          padding-left: 15px;
+          width: 100%;
+          height:30px;"
+           type="text" placeholder="Bình luận của bạn ..." name="content"> 
+         <div style="display: block; padding-left: 10px;">
+          </div>
+        
+          
+          </div>
+        </div>
+
+      </div>
+      
+      
+     </div>
+
+     <% }); %> 
+
+
+</div>
+
+<style>
+  
+#left-menu{
+  top: 98px;
+  position: fixed;
+  width: 24%;
+
+  
+  /* box-shadow: rgba(124, 124, 124, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset; */
+  height:1024px;
+  left: 0;
+  padding-left: 15px;
+}
+#leaderBoard{
+  /* background-color:rgb(255, 255, 255); */
+  overflow-y:hidden;
+  width:100%;
+  /* height:200px; */
+  box-shadow: rgba(124, 124, 124, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  border-radius: 10px;
+  list-style: none;
+  position: relative;
+  height: 400px;
+}
+#leaderBoard ion-icon{
+  font-size: 35px;
+  color: red;
+}
+#topUsers p{
+padding: 15px;
+box-sizing: border-box;
+background-color: rgba(255, 255, 255, 0.859);
+border-radius:12px;
+color: rgb(255, 0, 106);
+font-weight: 600;
+}
+
+</style>
